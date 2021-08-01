@@ -3,8 +3,9 @@ from tqdm.notebook import tqdm_notebook
 import numpy as np
 from pyarrow import csv
 import os
-
-folder_name = "C:\\Users\\parkh\\Documents\\과천시고압\\"
+from pydrive.drive import GoogleDrive
+drive = GoogleDrive('/content/drive')
+folder_name = "/content/drive/MyDrive/(B) Projects/KELAB Projects/EDACOM 2021/에너지 솔루션/한전 제공 데이터/경진대회__전력사용량1_과천시고압/"
 temp_arr = ["01", "02", "03", "04"]
 for i in range(len(temp_arr)) : #매 월에 따른 처리
     file_name = "(고압)과천시_2019"+temp_arr[i]+".csv" #파일명
