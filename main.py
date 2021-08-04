@@ -4,7 +4,9 @@ import numpy as np
 from pyarrow import csv
 import os
 from pydrive.drive import GoogleDrive
+
 drive = GoogleDrive('/content/drive')
+
 folder_name = "/content/drive/MyDrive/(B) Projects/KELAB Projects/EDACOM 2021/에너지 솔루션/한전 제공 데이터/경진대회__전력사용량1_과천시고압/"
 temp_arr = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 temp_arr2 = ["2019", "2020"]
@@ -23,6 +25,8 @@ for j in range(len(temp_arr2)) :
             df = csv.read_csv(folder_name + file_name, read_options = csv.ReadOptions(encoding = 'CP949', skip_rows = 1, column_names = column_names))
             # df.drop_duplicates() # 중복 레코드를 제거함
             li.append(df)
+
+        print(frame)
 
         frame = pd.concat(li, axis=0, ignore_index=True)
         frame.shape
